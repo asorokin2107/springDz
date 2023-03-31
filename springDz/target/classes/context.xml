@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="org.example.Trans" id="trans" >
+        <property name="typeTr" value="Manual"/>
+    </bean>
+    <bean class="org.example.Body" id="body" >
+        <constructor-arg name="type" value="Sedan"/>
+    </bean>
+    <bean class="org.example.Wheel" id="wheel" >
+        <property name="madeIn" value="China"/>
+    </bean>
+    <bean class="org.example.Motor" id="motor" >
+        <constructor-arg name="name" value="Moskvich"/>
+        <constructor-arg name="volume" value="1.6"/>
+    </bean>
+    <bean class="org.example.Car" id="car" >
+        <constructor-arg name="motor" ref="motor"/>
+        <constructor-arg name="wheel" ref="wheel"/>
+        <constructor-arg name="body" ref="body"/>
+        <constructor-arg name="trans" ref="trans"/>
+    </bean>
+</beans>
